@@ -12,20 +12,27 @@ public class CalculatorService {
 
 
     public String   sum (@RequestParam(required = false) Double num1, @RequestParam(required = false) Double num2){
+        check(num1, num1);
         return num1 + "+" + num2 + "=" + (num1+num2);
     }
 
 
     public String   minus (@RequestParam(required = false) Double num1, @RequestParam(required = false) Double num2){
+        check(num1, num1);
         return num1 + "-" + num2 + "=" + (num1-num2);
     }
 
 
     public String   multiply (@RequestParam(required = false) Double num1, @RequestParam(required = false) Double num2){
+        check(num1, num1);
         return num1 + "*" + num2 + "=" + (num1*num2);
     }
 
     public String   divide (@RequestParam(required = false) Double num1, @RequestParam(required = false) Double num2){
+        check(num1, num1);
+        if (num2 == 0) {
+            return "делить на 0 нельзя";
+        }
         return num1 + "/" + num2 + "=" + (num1/num2);
     }
 
